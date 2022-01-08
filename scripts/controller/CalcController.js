@@ -12,6 +12,17 @@ class CalcController {
 
         this.initButtons();
     }
+
+    initButtons(){
+
+        let buttons = document.querySelectorAll("#buttons > g, #parts > g");
+        
+        buttons.forEach(btn=>{
+            btn.addEventListener("click", e=>{
+                console.log(btn.className.baseVal.replace("btn-", ""));
+            })
+        })
+    }
     
     initialize() {
         this.getDisplayDateTime();
@@ -28,11 +39,6 @@ class CalcController {
             year: "numeric"
         });
         this.displayTime = this.currentDate.toLocaleTimeString(this._locale);
-    }
-
-    initButtons(){
-
-        let buttons = document.querySelectorAll("#buttons > g, #parts > g");
     }
 
     get currentDate() {
