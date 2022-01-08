@@ -16,12 +16,19 @@ class CalcController {
 
         setInterval(() => {
             this.getDisplayDateTime();
-        }, 1000)
+        }, 1000);
+
+        initButtons();
     }
 
     getDisplayDateTime(){
         this.displayDate = this.currentDate.toLocaleDateString(this._locale);
         this.displayTime = this.currentDate.toLocaleTimeString(this._locale);
+    }
+
+    initButtons(){
+
+        let buttons = document.querySelectorAll("#buttons > g, #parts > g");
     }
 
     get currentDate() {
