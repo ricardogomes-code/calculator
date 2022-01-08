@@ -9,6 +9,8 @@ class CalcController {
         this._timeEl = document.querySelector("#time");
 
         this.initialize();
+
+        this.initButtons();
     }
     
     initialize() {
@@ -17,8 +19,6 @@ class CalcController {
         setInterval(() => {
             this.getDisplayDateTime();
         }, 1000);
-
-        initButtons();
     }
 
     getDisplayDateTime(){
