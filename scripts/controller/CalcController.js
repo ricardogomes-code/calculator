@@ -15,6 +15,13 @@ class CalcController {
         this.initButtons();
     }
 
+    addEventListenerAll(btn, events, fn){
+
+        events.split(" ").forEach(event => {
+            btn.addEventListener(event, fn, false);
+        });
+    }
+
     initButtons(){
 
         let buttons = document.querySelectorAll("#buttons > g, #parts > g");
@@ -24,7 +31,13 @@ class CalcController {
                 let textBtn = btn.className.baseVal.replace("btn-", "");
                 this.execBtn(textBtn);
             })
-        })
+        });
+
+        buttons.forEach(btn => {
+            this.addEventListenerAll(btn, "mouseover mouseup mousedown", e=>{
+                btn.style.cursor = "pointer";
+            });
+        });
     }
 
     execBtn(value){
