@@ -8,6 +8,8 @@ class CalcController {
         this._dateEl = document.querySelector("#date");
         this._timeEl = document.querySelector("#time");
 
+        this._operations = [];
+
         this.initialize();
 
         this.initButtons();
@@ -28,10 +30,10 @@ class CalcController {
     execBtn(text){
         switch(text){
             case "ac":
-                console.log(text);
+                this.clearAll();
                 break;
             case "ce":
-                console.log(text);
+                this.clearEntry();
                 break;
 
             case "0":
@@ -68,7 +70,21 @@ class CalcController {
             case "ponto":
                 console.log(text);
                 break;
+            default:
+                this.setError();
         }
+    }
+
+    clearAll(){
+        this._operations = [];
+    }
+
+    clearEntry(){
+        this._operations.pop;
+    }
+
+    setError(){
+        this.displayResult = "Error";
     }
     
     initialize() {
