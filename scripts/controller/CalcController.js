@@ -19,9 +19,56 @@ class CalcController {
         
         buttons.forEach(btn=>{
             btn.addEventListener("click", e=>{
-                console.log(btn.className.baseVal.replace("btn-", ""));
+                let text = btn.className.baseVal.replace("btn-", "");
+                this.execBtn(text);
             })
         })
+    }
+
+    execBtn(text){
+        switch(text){
+            case "ac":
+                console.log(text);
+                break;
+            case "ce":
+                console.log(text);
+                break;
+
+            case "0":
+            case "1":
+            case "2": 
+            case "3":
+            case "4":
+            case "5": 
+            case "6":
+            case "7":
+            case "8":   
+            case "9":
+                console.log(text);
+                break;
+            case "porcento":
+                console.log(text);
+                break;
+            case "divisao":
+                console.log(text);
+                break;
+            case "multiplicacao":
+                console.log(text);
+                break;
+            
+            case "subtracao":
+                console.log(text);
+                break;
+            case "soma":
+                console.log(text);
+                break;
+            case "igual":
+                console.log(text);
+                break;
+            case "ponto":
+                console.log(text);
+                break;
+        }
     }
     
     initialize() {
