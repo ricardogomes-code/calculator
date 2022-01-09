@@ -46,7 +46,7 @@ class CalcController {
             case "7":
             case "8":   
             case "9":
-                console.log(text);
+                this.addOperation(text);
                 break;
             case "porcento":
                 console.log(text);
@@ -73,6 +73,11 @@ class CalcController {
             default:
                 this.setError();
         }
+    }
+
+    addOperation(value){
+        this._operations.push(value);
+        console.log(this._operations);
     }
 
     clearAll(){
