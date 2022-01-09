@@ -21,14 +21,14 @@ class CalcController {
         
         buttons.forEach(btn=>{
             btn.addEventListener("click", e=>{
-                let text = btn.className.baseVal.replace("btn-", "");
-                this.execBtn(text);
+                let textBtn = btn.className.baseVal.replace("btn-", "");
+                this.execBtn(textBtn);
             })
         })
     }
 
-    execBtn(text){
-        switch(text){
+    execBtn(value){
+        switch(value){
             case "ac":
                 this.clearAll();
                 break;
@@ -76,7 +76,7 @@ class CalcController {
     }
 
     addOperation(value){
-        this._operations.push(value);
+        this._operations.push(parseInt(value));
         console.log(this._operations);
     }
 
