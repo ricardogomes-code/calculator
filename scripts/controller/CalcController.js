@@ -30,6 +30,7 @@ class CalcController {
             btn.addEventListener("click", e=>{
                 let textBtn = btn.className.baseVal.replace("btn-", "");
                 this.execBtn(textBtn);
+                console.log(this._operations);
             })
         });
 
@@ -59,29 +60,29 @@ class CalcController {
             case "7":
             case "8":   
             case "9":
-                this.addOperation(text);
+                this.addOperation(value);
                 break;
             case "porcento":
-                console.log(text);
+                console.log(value);
                 break;
             case "divisao":
-                console.log(text);
+                console.log(value);
                 break;
             case "multiplicacao":
-                console.log(text);
+                console.log(value);
                 break;
             
             case "subtracao":
-                console.log(text);
+                console.log(value);
                 break;
             case "soma":
-                console.log(text);
+                console.log(value);
                 break;
             case "igual":
-                console.log(text);
+                console.log(value);
                 break;
             case "ponto":
-                console.log(text);
+                console.log(value);
                 break;
             default:
                 this.setError();
@@ -90,7 +91,6 @@ class CalcController {
 
     addOperation(value){
         this._operations.push(parseInt(value));
-        console.log(this._operations);
     }
 
     clearAll(){
@@ -98,7 +98,7 @@ class CalcController {
     }
 
     clearEntry(){
-        this._operations.pop;
+        this._operations.pop();
     }
 
     setError(){
