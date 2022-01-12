@@ -63,20 +63,20 @@ class CalcController {
                 this.addOperation(value);
                 break;
             case "porcento":
-                console.log(value);
+                this.addOperation("%");
                 break;
             case "divisao":
-                console.log(value);
+                this.addOperation("/");
                 break;
             case "multiplicacao":
-                console.log(value);
+                this.addOperation("*");
                 break;
             
             case "subtracao":
-                console.log(value);
+                this.addOperation("-");
                 break;
             case "soma":
-                console.log(value);
+                this.addOperation("+");
                 break;
             case "igual":
                 console.log(value);
@@ -90,7 +90,20 @@ class CalcController {
     }
 
     addOperation(value){
-        this._operations.push(parseInt(value));
+
+        if (this.getLastOperation()) {
+            let lastOperation = this.getLastOperation();
+            this._operations.pop();
+            this._operations.push(parseInt(lastOperation+value));
+        } else {
+            this._operations.push(parseInt(value));
+        }     
+    }
+
+    getLastOperation(){
+
+        return this._operations[this._operations.length-1];
+
     }
 
     clearAll(){
