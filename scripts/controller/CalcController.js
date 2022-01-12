@@ -91,13 +91,21 @@ class CalcController {
 
     addOperation(value){
 
-        if (this.getLastOperation()) {
-            let lastOperation = this.getLastOperation();
-            this._operations.pop();
-            this._operations.push(parseInt(lastOperation+value));
+        if (!this.isOperation(value)) {
+            console.log("nao eh operation")
+            if (!isNaN(this.getLastOperation())) {             
+                this._operations.pop();
+                this._operations.push(parseInt(lastOperation+value));
+            } else {
+                this._operations.push(parseInt(value));
+            }     
         } else {
-            this._operations.push(parseInt(value));
-        }     
+                this._operations.push(value);
+            }
+    }
+
+    isOperation(value){
+        return (["%", "/", "*", "-", "+"].indexOf(value) > -1);
     }
 
     getLastOperation(){
