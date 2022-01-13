@@ -79,7 +79,7 @@ class CalcController {
                 this.addOperation("+");
                 break;
             case "igual":
-                console.log(value);
+                this.calc();
                 break;
             case "ponto":
                 console.log(value);
@@ -89,13 +89,17 @@ class CalcController {
         }
     }
 
+    calc(){
+        let result = eval(this._operations.join(""));
+        this.displayResult = result;
+    }
+
     addOperation(value){
 
         if (!this.isOperation(value)) {
-            console.log("nao eh operation")
-            if (!isNaN(this.getLastOperation())) {             
-                this._operations.pop();
-                this._operations.push(parseInt(lastOperation+value));
+            if (!isNaN(this.getLastOperation())) {            
+                let lastNumber = this._operations.pop();                
+                this._operations.push(parseInt(lastNumber+value));
             } else {
                 this._operations.push(parseInt(value));
             }     
