@@ -96,15 +96,20 @@ class CalcController {
 
     addOperation(value){
 
+
         if (!this.isOperation(value)) {
             if (!isNaN(this.getLastOperation())) {            
-                let lastNumber = this._operations.pop();                
-                this._operations.push(parseInt(lastNumber+value));
+                let lastNumber = this._operations.pop(); 
+                let currentNumber = parseInt(lastNumber+value);               
+                this._operations.push(currentNumber);
+                this.displayResult = currentNumber;
             } else {
-                this._operations.push(parseInt(value));
+                let currentNumber = parseInt(value);
+                this._operations.push(currentNumber);
+                this.displayResult = currentNumber;
             }     
         } else {
-                this._operations.push(value);
+                this._operations.push(value);               
             }
     }
 
