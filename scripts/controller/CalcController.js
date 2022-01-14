@@ -91,6 +91,8 @@ class CalcController {
 
     calc(){
         let result = eval(this._operations.join(""));
+        this._operations = [];
+        this._operations.push(result);
         this.displayResult = result;
     }
 
@@ -109,7 +111,11 @@ class CalcController {
                 this.displayResult = currentNumber;
             }     
         } else {
-                this._operations.push(value);               
+            if (this._operations.length >= 3){
+                this.calc();
+            }
+                this._operations.push(value); 
+                               
             }
     }
 
@@ -125,10 +131,12 @@ class CalcController {
 
     clearAll(){
         this._operations = [];
+        this.displayResult = 0;
     }
 
     clearEntry(){
         this._operations.pop();
+        this.displayResult = this._operations[0];
     }
 
     setError(){
