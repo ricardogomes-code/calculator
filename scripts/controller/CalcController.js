@@ -8,7 +8,10 @@ class CalcController {
         this._dateEl = document.querySelector("#date");
         this._timeEl = document.querySelector("#time");
 
-        this._operations = [];
+        this._operations = [];""
+        this._lastOperator = "";
+        this._lastNumber = "";
+
 
         this.initialize();
 
@@ -118,10 +121,16 @@ class CalcController {
         } else {
             if (this._operations.length >= 3){
                 this.calc();
-            }
+            } else if(this.isOperation(this.getLastOperation())) {
+                this.setOperator(value);
+            } else {
                 this._operations.push(value); 
-                               
-            }
+            }                                             
+        }
+    }
+
+    setOperator(value){
+        this._operations[1] = value;
     }
 
     isOperation(value){
