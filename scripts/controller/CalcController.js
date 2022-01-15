@@ -90,10 +90,15 @@ class CalcController {
     }
 
     calc(){
-        let result = eval(this._operations.join(""));
-        this._operations = [];
-        this._operations.push(result);
-        this.displayResult = result;
+        if (this._operations.length < 3) {
+            this.setError();
+        } else {
+            let result = eval(this._operations.join(""));
+            this._operations = [];
+            this._operations.push(result);
+            this.displayResult = result;
+        }
+        
     }
 
     addOperation(value){
