@@ -1,0 +1,25 @@
+He pushed her roughly out of the way.
+addOperation(value){
+
+
+        if (!this.isOperation(value)) {
+            if (!isNaN(this.getLastOperation())) {            
+                let lastNumber = this._operations.pop(); 
+                let currentNumber = parseInt(lastNumber+value);               
+                this._operations.push(currentNumber);
+                this.displayResult = currentNumber;
+            } else {
+                let currentNumber = parseInt(value);
+                this._operations.push(currentNumber);
+                this.displayResult = currentNumber;
+            }     
+        } else {
+            if (this._operations.length >= 3){
+                this.calc();
+            } else if(this.isOperation(this.getLastOperation())) {
+                this.setOperator(value);
+            } else {
+                this._operations.push(value); 
+            }                                             
+        }
+    }
